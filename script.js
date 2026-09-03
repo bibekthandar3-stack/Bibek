@@ -9,6 +9,7 @@
    Example: click: "assets/sounds/button.wav"
    ========================================================== */
 const soundFiles = {
+    intro: "assets/sounds/intro.mp3",
     click: "assets/sounds/click.mp3",
     hover: "assets/sounds/hover.mp3",
     menu:  "assets/sounds/menu.mp3",
@@ -74,6 +75,7 @@ const SoundSystem = (function () {
     }
 
     return {
+        playIntro: () => play("intro"),
         playClick: () => play("click"),
         playHover,
         playMenu:  () => play("menu"),
@@ -89,6 +91,7 @@ const SoundSystem = (function () {
 })();
 
 /* Convenience wrappers (same API as requested in the brief) */
+const playIntroSound = SoundSystem.playIntro;
 const playClickSound = SoundSystem.playClick;
 const playHoverSound = SoundSystem.playHover;
 const playMenuSound  = SoundSystem.playMenu;
@@ -126,6 +129,33 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
         requestAnimationFrame(tick);
+    })();
+
+    /* ======================================================
+       INTRO SOUND — plays on load; if the browser blocks
+       autoplay, it plays on the visitor's very first
+       click/tap/keypress anywhere on the page instead.
+       ====================================================== */
+    (function initIntroSound() {
+        let hasPlayed = false;
+
+        function tryPlayIntro() {
+            if (hasPlayed || !SoundSystem.isEnabled()) return;
+            hasPlayed = true; // only ever attempt once
+            playIntroSound();
+        }
+
+        // Attempt 1: as soon as the page finishes loading
+        tryPlayIntro();
+
+        // Attempt 2 (fallback): most browsers block sound until the
+        // user interacts with the page — this catches that first gesture.
+        const unlockEvents = ["click", "keydown", "touchstart"];
+        function onFirstGesture() {
+            tryPlayIntro();
+            unlockEvents.forEach(evt => document.removeEventListener(evt, onFirstGesture));
+        }
+        unlockEvents.forEach(evt => document.addEventListener(evt, onFirstGesture));
     })();
 
     /* ======================================================
