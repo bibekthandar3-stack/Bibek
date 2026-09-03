@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Premium personal developer portfolio — Full Stack Developer, Software Developer, Machine Learning Enthusiast." />
+  <!-- EDIT: Page title -->
+  <title>Your Name — Full Stack Developer</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5 (grid + utilities only) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet" />
+
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============ PAGE LOADER ============ -->
+  <div id="loader" aria-hidden="true">
+    <div class="loader-inner">
+      <!-- EDIT: Your name for the loading screen -->
+      <span class="loader-name">YOUR&nbsp;NAME</span>
+      <div class="loader-bar"><span class="loader-bar-fill" id="loaderBarFill"></span></div>
+      <span class="loader-percent" id="loaderPercent">0%</span>
+    </div>
+  </div>
+
+  <!-- ============ CUSTOM CURSOR (desktop only) ============ -->
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-follower" id="cursorFollower" aria-hidden="true"></div>
+
+  <!-- ============ NAVIGATION ============ -->
+  <header id="navbar">
+    <nav class="nav-inner container" aria-label="Main navigation">
+      <!-- EDIT: Logo / initials -->
+      <a href="#home" class="logo nav-sound-click">YN<span>.</span></a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home"       class="nav-link active">Home</a></li>
+        <li><a href="#about"      class="nav-link">About</a></li>
+        <li><a href="#skills"     class="nav-link">Skills</a></li>
+        <li><a href="#projects"   class="nav-link">Projects</a></li>
+        <li><a href="#services"   class="nav-link">Services</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#contact"    class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Sound ON/OFF toggle -->
+        <button id="soundToggle" class="sound-toggle" type="button" aria-label="Disable sound" aria-pressed="true">
+          <i class="fa-solid fa-volume-high" id="soundIcon"></i>
+          <span id="soundLabel">SOUND ON</span>
+        </button>
+
+        <!-- Mobile hamburger -->
+        <button id="hamburger" class="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <span class="hero-label reveal-hero">HELLO, I'M</span>
+          <!-- EDIT: Your full name -->
+          <h1 class="hero-name reveal-hero">YOUR<br />NAME<span class="gold-dot">.</span></h1>
+          <h2 class="hero-role reveal-hero">
+            <span id="typewriter">FULL STACK DEVELOPER</span><span class="type-caret" aria-hidden="true"></span>
+          </h2>
+          <!-- EDIT: Short professional introduction -->
+          <p class="hero-intro reveal-hero">
+            I design and build elegant, high-performance web experiences — from polished
+            front-ends to robust back-ends — and explore machine learning to solve real problems.
+          </p>
+          <div class="hero-buttons reveal-hero">
+            <a href="#projects" class="btn-gold nav-sound-click">
+              VIEW MY WORK <i class="fa-solid fa-arrow-right btn-arrow" aria-hidden="true"></i>
+            </a>
+            <a href="#contact" class="btn-ghost nav-sound-click">
+              CONTACT ME <i class="fa-solid fa-arrow-right btn-arrow" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal-hero">
+          <div class="hero-shape shape-1" aria-hidden="true"></div>
+          <div class="hero-shape shape-2" aria-hidden="true"></div>
+          <div class="hero-shape shape-ring" aria-hidden="true"></div>
+          <figure class="hero-photo">
+            <!-- EDIT: Replace assets/images/profile.jpg with your photo -->
+            <img src="assets/images/profile.jpg" alt="Portrait of the developer" loading="eager"
+                 onerror="this.closest('.hero-photo').classList.add('img-missing'); this.remove();" />
+            <figcaption class="img-fallback" aria-hidden="true"><i class="fa-solid fa-user-astronaut"></i></figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <a href="#about" class="scroll-indicator nav-sound-click" aria-label="Scroll to explore">
+        <span>SCROLL TO EXPLORE</span>
+        <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
+      </a>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-5 reveal fade-left">
+            <figure class="about-photo">
+              <!-- EDIT: About image (reuses profile or a second photo) -->
+              <img src="assets/images/profile.jpg" alt="Workspace portrait" loading="lazy"
+                   onerror="this.closest('.about-photo').classList.add('img-missing'); this.remove();" />
+              <figcaption class="img-fallback" aria-hidden="true"><i class="fa-solid fa-code"></i></figcaption>
+            </figure>
+          </div>
+          <div class="col-lg-7 reveal fade-right">
+            <span class="section-label">ABOUT ME</span>
+            <h2 class="section-title">Turning ideas into <em>working software</em></h2>
+            <p>
+              I'm a passionate software developer focused on full stack web development and
+              machine learning. My journey started with curiosity about how the web works and
+              grew into building complete applications — from database design to polished
+              user interfaces.
+            </p>
+            <p>
+              I enjoy learning new technologies, writing clean code, and solving problems that
+              matter. My goal is to grow into a well-rounded engineer who builds products that
+              are both technically strong and delightful to use.
+            </p>
+            <div class="stats-grid">
+              <div class="stat"><span class="stat-number" data-target="10">0</span><span class="stat-suffix">+</span><p>Projects</p></div>
+              <div class="stat"><span class="stat-number" data-target="5">0</span><span class="stat-suffix">+</span><p>Technologies</p></div>
+              <div class="stat"><span class="stat-number" data-target="3">0</span><span class="stat-suffix">+</span><p>Certifications</p></div>
+              <div class="stat"><span class="stat-number" data-target="2">0</span><span class="stat-suffix">+</span><p>Years Learning</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section id="skills" class="section section-alt">
+      <div class="container">
+        <div class="section-head reveal fade-up">
+          <span class="section-label">MY SKILLS</span>
+          <h2 class="section-title">Technologies I <em>work with</em></h2>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-6 reveal fade-up">
+            <div class="skill-card" data-skill>
+              <div class="skill-row"><span><i class="fa-brands fa-html5 skill-icon"></i> HTML</span><span class="skill-pct" data-progress="90">0%</span></div>
+              <div class="skill-bar"><span class="skill-fill" data-width="90"></span></div>
+            </div>
+            <div class="skill-card" data-skill>
+              <div class="skill-row"><span><i class="fa-brands fa-css3-alt skill-icon"></i> CSS</span><span class="skill-pct" data-progress="85">0%</span></div>
+              <div class="skill-bar"><span class="skill-fill" data-width="85"></span></div>
+            </div>
+            <div class="skill-card" data-skill>
+              <div class="skill-row"><span><i class="fa-brands fa-bootstrap skill-icon"></i> Bootstrap</span><span class="skill-pct" data-progress="80">0%</span></div>
+              <div class="skill-bar"><span class="skill-fill" data-width="80"></span></div>
+            </div>
+            <div class="skill-card" data-skill>
+              <div class="skill-row"><span><i class="fa-brands fa-js skill-icon"></i> JavaScript</span><span class="skill-pct" data-progress="75">0%</span></div>
+              <div class="skill-bar"><span class="skill-fill" data-width="75"></span></div>
+            </div>
+            <div class="skill-card" data-skill>
+              <div class="skill-row"><span><i class="fa-brands fa-git-alt skill-icon"></i> Git / GitHub</span><span class="skill-pct" data-progress="80">0%</span></div>
+              <div class="skill-bar"><span class="skill-fill" data-width="80"></span></div>
+            </div>
+          </div>
+          <div class="col-md-6 reveal fade-up">
+            <div class="skill-card" data-skill>
+              <div class="skill-row"><span><i class="fa-brands fa-php skill-icon"></i> PHP</span><span class="skill-pct" data-progress="70">0%</span></div>
+              <div class="skill-bar"><span class="skill-fill" data-width="70"></span></div>
+            </div>
+            <div class="skill-card" data-skill>
+              <div class="skill-row"><span><i class="fa-solid fa-database skill-icon"></i> MySQL</span><span class="skill-pct" data-progress="70">0%</span></div>
+              <div class="skill-bar"><span class="skill-fill" data-width="70"></span></div>
+            </div>
+            <div class="skill-card" data-skill>
+              <div class="skill-row"><span><i class="fa-brands fa-python skill-icon"></i> Python</span><span class="skill-pct" data-progress="75">0%</span></div>
+              <div class="skill-bar"><span class="skill-fill" data-width="75"></span></div>
+            </div>
+            <div class="skill-card" data-skill>
+              <div class="skill-row"><span><i class="fa-solid fa-brain skill-icon"></i> Machine Learning</span><span class="skill-pct" data-progress="65">0%</span></div>
+              <div class="skill-bar"><span class="skill-fill" data-width="65"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="section-head reveal fade-up">
+          <span class="section-label">SELECTED WORK</span>
+          <h2 class="section-title">Featured <em>Projects</em></h2>
+        </div>
+
+        <div class="projects-list">
+
+          <!-- Project 01 -->
+          <article class="project-card reveal fade-up" data-project="p1" tabindex="0" role="button" aria-label="Open details: Bike Rental Management System">
+            <div class="project-media">
+              <img src="assets/images/project1.jpg" alt="Bike Rental Management System preview" loading="lazy"
+                   onerror="this.closest('.project-media').classList.add('img-missing'); this.remove();" />
+              <span class="img-fallback" aria-hidden="true"><i class="fa-solid fa-bicycle"></i></span>
+              <div class="project-overlay"><span class="project-view">VIEW PROJECT <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></div>
+            </div>
+            <div class="project-info">
+              <span class="project-number">01</span>
+              <span class="project-cat">FULL STACK WEB APP</span>
+              <h3 class="project-title">Bike Rental Management System</h3>
+              <p class="project-desc">A complete rental platform with booking, availability tracking, and an admin dashboard for managing bikes and customers.</p>
+              <div class="project-tech"><span>HTML</span><span>CSS</span><span>Bootstrap</span><span>PHP</span><span>MySQL</span></div>
+              <div class="project-actions">
+                <!-- EDIT: real links -->
+                <a href="#" class="project-link nav-sound-click" aria-label="GitHub repository"><i class="fa-brands fa-github"></i> GitHub</a>
+                <a href="#" class="project-link nav-sound-click" aria-label="Live demo"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 02 -->
+          <article class="project-card project-reverse reveal fade-up" data-project="p2" tabindex="0" role="button" aria-label="Open details: Breast Cancer Prediction Using Machine Learning">
+            <div class="project-media">
+              <img src="assets/images/project2.jpg" alt="Breast Cancer Prediction project preview" loading="lazy"
+                   onerror="this.closest('.project-media').classList.add('img-missing'); this.remove();" />
+              <span class="img-fallback" aria-hidden="true"><i class="fa-solid fa-brain"></i></span>
+              <div class="project-overlay"><span class="project-view">VIEW PROJECT <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></div>
+            </div>
+            <div class="project-info">
+              <span class="project-number">02</span>
+              <span class="project-cat">MACHINE LEARNING</span>
+              <h3 class="project-title">Breast Cancer Prediction Using Machine Learning</h3>
+              <p class="project-desc">A classification model that predicts tumor diagnosis from medical data, with full data analysis and model evaluation.</p>
+              <div class="project-tech"><span>Python</span><span>Pandas</span><span>Scikit-learn</span><span>Machine Learning</span></div>
+              <div class="project-actions">
+                <a href="#" class="project-link nav-sound-click" aria-label="GitHub repository"><i class="fa-brands fa-github"></i> GitHub</a>
+                <a href="#" class="project-link nav-sound-click" aria-label="Live demo"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 03 -->
+          <article class="project-card reveal fade-up" data-project="p3" tabindex="0" role="button" aria-label="Open details: Personal Developer Portfolio">
+            <div class="project-media">
+              <img src="assets/images/project3.jpg" alt="Personal Developer Portfolio preview" loading="lazy"
+                   onerror="this.closest('.project-media').classList.add('img-missing'); this.remove();" />
+              <span class="img-fallback" aria-hidden="true"><i class="fa-solid fa-laptop-code"></i></span>
+              <div class="project-overlay"><span class="project-view">VIEW PROJECT <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></div>
+            </div>
+            <div class="project-info">
+              <span class="project-number">03</span>
+              <span class="project-cat">FRONTEND</span>
+              <h3 class="project-title">Personal Developer Portfolio</h3>
+              <p class="project-desc">A premium, fully responsive personal portfolio with custom animations, interactive sound design, and a project showcase.</p>
+              <div class="project-tech"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+              <div class="project-actions">
+                <a href="#" class="project-link nav-sound-click" aria-label="GitHub repository"><i class="fa-brands fa-github"></i> GitHub</a>
+                <a href="#" class="project-link nav-sound-click" aria-label="Live demo"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section id="services" class="section section-alt">
+      <div class="container">
+        <div class="section-head reveal fade-up">
+          <span class="section-label">WHAT I DO</span>
+          <h2 class="section-title">Services &amp; <em>Expertise</em></h2>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-3 reveal fade-up">
+            <div class="service-card" data-hover-sound>
+              <span class="service-number">01</span>
+              <i class="fa-solid fa-layer-group service-icon"></i>
+              <h3>Full Stack Development</h3>
+              <p>End-to-end web applications — from database schema to deployed front-end.</p>
+              <i class="fa-solid fa-arrow-right service-arrow" aria-hidden="true"></i>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 reveal fade-up">
+            <div class="service-card" data-hover-sound>
+              <span class="service-number">02</span>
+              <i class="fa-solid fa-display service-icon"></i>
+              <h3>Frontend Development</h3>
+              <p>Responsive, accessible, pixel-perfect interfaces with modern HTML, CSS and JS.</p>
+              <i class="fa-solid fa-arrow-right service-arrow" aria-hidden="true"></i>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 reveal fade-up">
+            <div class="service-card" data-hover-sound>
+              <span class="service-number">03</span>
+              <i class="fa-solid fa-server service-icon"></i>
+              <h3>Backend Development</h3>
+              <p>Robust server logic, REST APIs and MySQL databases built with PHP and Python.</p>
+              <i class="fa-solid fa-arrow-right service-arrow" aria-hidden="true"></i>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 reveal fade-up">
+            <div class="service-card" data-hover-sound>
+              <span class="service-number">04</span>
+              <i class="fa-solid fa-brain service-icon"></i>
+              <h3>Machine Learning</h3>
+              <p>Data analysis and predictive models using Python, Pandas and Scikit-learn.</p>
+              <i class="fa-solid fa-arrow-right service-arrow" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCE / TIMELINE ============ -->
+    <section id="experience" class="section">
+      <div class="container">
+        <div class="section-head reveal fade-up">
+          <span class="section-label">MY JOURNEY</span>
+          <h2 class="section-title">Experience &amp; <em>Education</em></h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item reveal fade-up">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-card">
+              <span class="timeline-year">2024</span>
+              <h3>Started Software Development</h3>
+              <p>Began learning programming fundamentals, HTML, CSS and JavaScript — building my first web pages and small projects.</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal fade-up">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-card">
+              <span class="timeline-year">2025</span>
+              <h3>Full Stack Development Projects</h3>
+              <p>Expanded into PHP and MySQL, building complete database-driven applications including a bike rental management system.</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal fade-up">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-card">
+              <span class="timeline-year">2025</span>
+              <h3>Machine Learning Project</h3>
+              <p>Applied Python, Pandas and Scikit-learn to real medical data, building and evaluating a breast cancer prediction model.</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal fade-up">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-card">
+              <span class="timeline-year">2026</span>
+              <h3>Specialist Project / Portfolio Development</h3>
+              <p>Designing and engineering a premium interactive portfolio while deepening expertise across the full development stack.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROCESS ============ -->
+    <section id="process" class="section section-alt">
+      <div class="container">
+        <div class="section-head reveal fade-up">
+          <span class="section-label">HOW I WORK</span>
+          <h2 class="section-title">Creative Development <em>Process</em></h2>
+        </div>
+        <div class="process-grid">
+          <div class="process-step reveal fade-up" data-hover-sound>
+            <span class="process-number">01</span>
+            <h3>DISCOVER</h3>
+            <p>Understand the problem, the users, and the goals before writing a single line of code.</p>
+          </div>
+          <div class="process-step reveal fade-up" data-hover-sound>
+            <span class="process-number">02</span>
+            <h3>PLAN</h3>
+            <p>Design the architecture, choose the right technologies, and map out the build.</p>
+          </div>
+          <div class="process-step reveal fade-up" data-hover-sound>
+            <span class="process-number">03</span>
+            <h3>DEVELOP</h3>
+            <p>Write clean, tested, maintainable code — iterating quickly and reviewing often.</p>
+          </div>
+          <div class="process-step reveal fade-up" data-hover-sound>
+            <span class="process-number">04</span>
+            <h3>DELIVER</h3>
+            <p>Polish, optimize, deploy, and support the finished product with pride.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-lg-6 reveal fade-left">
+            <span class="section-label">GET IN TOUCH</span>
+            <h2 class="contact-title">LET'S BUILD<br />SOMETHING<br /><em>TOGETHER.</em></h2>
+            <p class="contact-text">
+              Have a project in mind, a question, or just want to say hello?
+              My inbox is always open — I'll get back to you as soon as I can.
+            </p>
+            <ul class="contact-details">
+              <!-- EDIT: your contact details -->
+              <li><i class="fa-solid fa-envelope" aria-hidden="true"></i> <a href="mailto:hello@example.com" class="nav-sound-click">hello@example.com</a></li>
+              <li><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Available remotely, worldwide</li>
+            </ul>
+          </div>
+          <div class="col-lg-6 reveal fade-right">
+            <form id="contactForm" class="contact-form" novalidate>
+              <div class="form-field">
+                <label for="cfName">Name</label>
+                <input type="text" id="cfName" name="name" placeholder="Your name" autocomplete="name" />
+                <span class="form-error" id="errName"></span>
+              </div>
+              <div class="form-field">
+                <label for="cfEmail">Email</label>
+                <input type="email" id="cfEmail" name="email" placeholder="you@example.com" autocomplete="email" />
+                <span class="form-error" id="errEmail"></span>
+              </div>
+              <div class="form-field">
+                <label for="cfSubject">Subject</label>
+                <input type="text" id="cfSubject" name="subject" placeholder="What is this about?" />
+                <span class="form-error" id="errSubject"></span>
+              </div>
+              <div class="form-field">
+                <label for="cfMessage">Message</label>
+                <textarea id="cfMessage" name="message" rows="5" placeholder="Tell me about your project..."></textarea>
+                <span class="form-error" id="errMessage"></span>
+              </div>
+              <button type="submit" class="btn-gold btn-submit">
+                SEND MESSAGE <i class="fa-solid fa-paper-plane btn-arrow" aria-hidden="true"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="#home" class="logo nav-sound-click">YN<span>.</span></a>
+        <p>Full stack developer crafting elegant, high-performance digital experiences.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="#home" class="nav-sound-click">Home</a>
+        <a href="#about" class="nav-sound-click">About</a>
+        <a href="#projects" class="nav-sound-click">Projects</a>
+        <a href="#services" class="nav-sound-click">Services</a>
+        <a href="#contact" class="nav-sound-click">Contact</a>
+      </nav>
+      <div class="footer-social">
+        <!-- EDIT: your social links -->
+        <a href="#" class="social-icon nav-sound-click" data-hover-sound aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="#" class="social-icon nav-sound-click" data-hover-sound aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="mailto:hello@example.com" class="social-icon nav-sound-click" data-hover-sound aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span id="year">2026</span> Your Name. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ============ PROJECT MODAL ============ -->
+  <div class="modal-overlay" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal-box">
+      <button class="modal-close" id="modalClose" type="button" aria-label="Close project details">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+      <div class="modal-grid">
+        <div class="modal-media">
+          <img id="modalImage" src="" alt="" />
+          <span class="img-fallback" id="modalFallback" aria-hidden="true"><i class="fa-solid fa-image"></i></span>
+        </div>
+        <div class="modal-body">
+          <span class="project-cat" id="modalCategory"></span>
+          <h3 id="modalTitle"></h3>
+          <p id="modalDesc"></p>
+          <h4>Key Features</h4>
+          <ul class="modal-features" id="modalFeatures"></ul>
+          <h4>Technologies</h4>
+          <div class="project-tech" id="modalTech"></div>
+          <div class="modal-actions">
+            <a href="#" id="modalGithub" class="btn-ghost nav-sound-click" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+            <a href="#" id="modalDemo" class="btn-gold nav-sound-click" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SUCCESS TOAST ============ -->
+  <div class="toast-notification" id="toast" role="status" aria-live="polite">
+    <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+    <div>
+      <strong>Message sent successfully!</strong>
+      <p>Thank you for reaching out — I'll reply soon.</p>
+    </div>
+  </div>
+
+  <!-- Main script -->
+  <script src="script.js"></script>
+</body>
+</html>
